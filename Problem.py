@@ -1,4 +1,7 @@
-#Use the count method to determine how many vowels are in the string prophecy. Store this count in the vowel_count variable. Note: the vowels are a, e, i, o and u. Hint: You may want to call the count method multiple times, and increment vowel_count multiple times.
+# Use the count method to determine how many vowels are in the string prophecy. Store this count in the vowel_count variable. 
+# Note: the vowels are a, e, i, o and u. 
+# Hint: You may want to call the count method multiple times, and increment vowel_count multiple times.
+
 prophecy = "And there shall in that time be rumours of things going astray, and there will be a great confusion as to where things really are, and nobody will really know where lieth those little things with the sort of raffia work base, that has an attachment…at this time, a friend shall lose his friends’s hammer and the young shall not know where lieth the things possessed by their fathers that their fathers put there only just the night before around eight o’clock…"
 
 # Solution
@@ -15,9 +18,8 @@ vowel_count += prophecy.count('u')
 vowel_count += prophecy.count('U')
 
 '''
-Looking at this first attempt, I think I can make it better. Counting 
-both lower-case 'a' and upper-case 'A', seems unnecessary. I'll convert 
-everything to lower-case, and then I only need to count each vowel once!
+Another easier way is to convert the whole string into lower case so that we don't have to 
+write code for counting upper case vowels. 
 '''
 
 vowel_count = 0
@@ -37,3 +39,4 @@ in the second attempt. Getting started with a simple idea and then improving
 my work from there is a common pattern I use when programming, I recommend 
 you try it too.
 '''
+

@@ -23,3 +23,16 @@ When we call the islower and title methods we use parentheses, but we haven't pu
 
 The count method returns how many times the substring "fish" occurs in the string.
 
+There are various String Methods. They can implement various operations, some of them which we have used are described below.
+
+- str.count(sub[, start[, end]]) : Return the number of non-overlapping occurrences of substring sub in the range [start, end]. Optional arguments start and end are interpreted as in slice notation.
+The documentation mention two optional arguments, start and end, these limits the counts to occurrences that appear within specified sections of a string.
+
+- str.capitalize() : Return a copy of the string with its first character capitalized and the rest lowercased.
+
+- str.center(width[, fillchar]) : Return centered in a string of length width. Padding is done using the specified fillchar (default is an ASCII space). The original string is returned if width is less than or equal to len(s).
+
+Throughout the documentation optional are indicated with square brackets like these. Any argument surrounded by square brackets are optional. 
+The documentation tends to be terse and precise, but it's very useful.
+
+All of them are given in Python's official documentation.
