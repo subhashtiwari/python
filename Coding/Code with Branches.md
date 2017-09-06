@@ -136,4 +136,18 @@ def punctuate2(sentence, phrase_type):
         return sentence + "."
 
 The return statements come inside the indented blocks after conditional statements. Because the main work of the function is really done inside each of the branches.
-As soon as return is executed in a function, execution will leave that function. This means that you should see every return as a possible exit from the function
+As soon as return is executed in a function, execution will leave that function. This means that you should see every return as a possible exit from the function.
+
+# Truth values of non-boolean objects
+
+The structure of a conditional so far  has been
+
+    if boolean_expression:
+        intented_code
+
+and the boolean_expressions have been expressions that evaluate to a boolean object - either True or False.
+
+If we put some other object that is not a boolean in theif statement in place of the boolean expression, Python will check for its 'truth value' and ues that to decide whether or not to run the intended code.
+
+The "Python Documentation" lists all the objects that are considered 'False' in this situation. Any number that is 0, an object that is 'None' or an empty string will have a truth value of 'False'. Anything that isn't listed as having a truth value 'False' will count as 'True'.
+
