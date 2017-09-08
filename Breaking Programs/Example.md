@@ -92,4 +92,3 @@ def scores_to_rating(score1,score2,score3,score4,score5):
     rating = score_to_rating_string(average_score)
 
     return rating
-
