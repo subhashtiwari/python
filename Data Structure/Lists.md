@@ -113,3 +113,117 @@ Strings are sequences of letters, while list elements can be any type of object.
 
 The technical term for whether an object can be modified is mutability. Lists are mutable, while strings are immutable. 
 
+# Variable that holds a list
+
+ When we created a variable that held an immutable object, the value of that immutable object was saved in memory. Here we create name with value "Old Woman" and assign it to another variable called person.
+
+    >>> name = "Old Woman"
+    >>> person = name
+    >>> name = "Dennis"
+    >>> print(name)
+    Dennis
+    >>> print(person)
+    Old Woman 
+
+
+It is the string "Old Woman" that is assigned to person, so when we reassign name to update it to "Dennis", this change is not reflected in the value of person.
+
+Lists are different from strings as they are mutable. 
+Here, we create a list called dish with the ingredients of a dish at a café. We assign this same list to the variable mr_buns_order and when we change (mutate) the dish list because an ingredient is unavailable, this affects both dish and mr_buns_order.
+
+    >>> dish = ["Spam", "Spam", "Spam", "Spam", "Spam", "Spam", "baked beans", "Spam", "Spam", "Spam", "Spam"]
+    >>> mr_buns_order = dish
+    >>> print(dish)
+    ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'baked beans', 'Spam', 'Spam', 'Spam', 'Spam']
+    >>> print(mr_buns_order)
+    ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'baked beans', 'Spam', 'Spam', 'Spam', 'Spam']
+    >>> dish[6] = "Spam" #baked beans are off
+    >>> print(mr_buns_order)
+    ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam']
+    >>> print(dish)
+    ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam']
+
+Both dish and mr_buns_order are variable names for the same underlying list, and either name can be used to access and change that list.
+
+# Working with Lists   
+
+These are functions that are useful for working with lists:
+
+- len(some_list)
+Returns how many elements are in some_list
+
+- max(some_list)
+Returns the greatest element of the list. How the greatest element is determined depends on what type objects are in the list. The maximum element in a list of numbers is the largest number:
+
+    >>> batch_sizes = [15, 6, 89, 34, 65, 35]
+    >>> max(batch_sizes)
+    89
+
+The maximum elements in a list of strings is element that would occur last of the list were sorted alphabetically:
+
+    >>> python_varieties = ['Burmese Python', 'African Rock Python', 'Ball Python', 'Reticulated Python', 'Angolan Python']
+    >>> max(python_varieties)
+    'Reticulated Python'
+
+This works because the the max function is defined in terms of >, the greater than comparison operator. The > operator is defined for many non-numeric types; if you're working with objects that can be compared with > then you can use max on a list of the objects. 
+For strings the standard comparison is alphabetical, so the maximum of this list is the element that appears last alphabetically.
+The max function is undefined for lists that contain elements from different, incomparable types:
+
+    >>> max([42, 'African Swallow'])
+    TypeError: unorderable types: str() > int()
+
+- min(some_list)
+Returns the smallest element in a list. min is the opposite of max.
+
+- sorted(soem_list)
+Returns a copy of some_list in order from smallest to largest, leaving some_list unchanged. You can sort from largest to smallest by adding the optional argument reverse=True.
+
+    >>> sorted(batch_sizes)
+    [6, 15, 34, 35, 65, 89]
+    >>> sorted(batch_sizes, reverse=True)
+    [89, 65, 35, 34, 15, 6]
+    >>> print(batch_sizes)
+    [15, 6, 89, 34, 65, 35]
+
+# Joining Lists
+
+A new string method, join. An example is shown below:
+
+    >>> nautical_directions = "\n".join(["fore", "aft", "starboard", "port"])
+    >>> print(nautical_directions)
+    fore
+    aft
+    starboard
+    port
+
+The join takes a list as an argument, and returns a string consisting of the list elements joined by a separator string. In this example we use the string \n as the separator so that there is a newline between each element.
+
+We can also use other strings (instead of '\n') with .join For instance:
+
+    >>> names = ["García", "O'Kelly", "Davis"]
+    >>> "-".join(names)
+    "García-O'Kelly-Davis"
+
+It is important to remember to separate each of the items in the list you are joining with a comma (,). Forgetting to do so will not trigger an error, but will also give you unexpected results. 
+In the example below omitting the comma between "García" and "O'Kelly" results in the following:
+
+    >>> names = ["García" "O'Kelly", "Davis"]
+    >>> "-".join(names)
+    "GarcíaO'Kelly-Davis"
+
+Notice how the '-' separator is missing between "García" and "O'Kelly" and instead the two strings were appended? This happens because of Python's default string-literal appending. If .join returns different results then expected.
+
+join will trigger an error if we try to join anything other than strings. For example:
+
+    >>> stuff = ["thing", 42, "nope"]
+    >>> " and ".join(stuff)
+    Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    TypeError: sequence item 1: expected str instance, int found
+
+# Appending to Lists
+The append method of list objects adds an element to the end of the list.
+
+>>> python_varieties.append('Blood Python')
+>>> print(python_varieties)
+['Burmese Python', 'African Rock Python', 'Ball Python', 'Reticulated Python', 'Angolan Python', 'Blood Python']
